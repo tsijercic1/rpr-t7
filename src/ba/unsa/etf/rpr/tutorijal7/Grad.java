@@ -4,8 +4,17 @@ public class Grad {
     String naziv;
     int brojStanovnika;
     double[] temperature = new double[1000];
+    int brojMjerenja;
 
     public Grad() {
+    }
+
+    public Grad(String naziv,  double[] temperature,int brojMjerenja) {
+        this.naziv = naziv;
+        this.brojStanovnika = 0;
+        this.brojMjerenja=brojMjerenja;
+        this.setTemperature(temperature,brojMjerenja);
+
     }
 
     public String getNaziv() {
@@ -25,10 +34,10 @@ public class Grad {
     }
 
     public double[] getTemperature() {
-        return temperature;
+        return temperature.clone();
     }
 
-    public void setTemperature(double[] temperature) {
-        this.temperature = temperature;
+    public void setTemperature(double[] temperature,int brojMjerenja) {
+        System.arraycopy(temperature, 0, this.temperature, 0, brojMjerenja);
     }
 }
