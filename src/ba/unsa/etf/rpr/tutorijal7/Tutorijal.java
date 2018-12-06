@@ -8,10 +8,8 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.PrintWriter;
+import java.beans.XMLEncoder;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -48,19 +46,19 @@ public class Tutorijal {
             if(drzavaNode instanceof Element) {
                 Element drzavaEl = (Element)drzavaNode;
 
-                int stanovnika = Integer.parseInt(drzavaEl.getAttribute("stanovnika"));
+                int brojStanovnika = Integer.parseInt(drzavaEl.getAttribute("stanovnika"));
                 String naziv = drzavaEl.getElementsByTagName("naziv").item(0).getTextContent();
 
-                Element gGradXml = (Element)drzavaEl.getElementsByTagName("glavnigrad").item(0);
-                int gStanovnika = Integer.parseInt(gGradXml.getAttribute("stanovnika"));
-                String nazivGrada = gGradXml.getTextContent().trim();
+                Element  glavniGradXML = (Element)drzavaEl.getElementsByTagName("glavnigrad").item(0);
+                int glavniBrojStanovnika = Integer.parseInt( glavniGradXML.getAttribute("stanovnika"));
+                String nazivGrada =  glavniGradXML.getTextContent().trim();
 
                 Element povrsinaXml = (Element)drzavaEl.getElementsByTagName("povrsina").item(0);
-                String jedinica = povrsinaXml.getAttribute("jedinica");
+                String jedinicaPovrsine = povrsinaXml.getAttribute("jedinica");
                 double povrsina = Double.parseDouble(drzavaEl.getElementsByTagName("povrsina").item(0).getTextContent());
 
-                Grad glavniGrad = new Grad(nazivGrada, null, 0,stanovnika);
-                drzave.add(new Drzava(naziv, stanovnika, povrsina, jedinica, glavniGrad));
+                Grad glavniGrad = new Grad(nazivGrada, null, 0,glavniBrojStanovnika);
+                drzave.add(new Drzava(naziv, brojStanovnika, povrsina, jedinicaPovrsine, glavniGrad));
             }
         }
 
@@ -97,5 +95,18 @@ public class Tutorijal {
         }
         return gradovi;
     }
+
+    public static void zapisiXml(UN un) {
+        try {
+            XMLEncoder encoder = new XMLEncoder(
+                    new BufferedOutputStream(
+                            new FileOutputStream("un.xml")));
+            encoder.writeObject(un);
+            encoder.close();
+        } catch(Exception exception) {
+            System.out.println("Greška: " + exception);
+        }
+    }
+
 }
 
