@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.tutorijal7;
 
-public class Drzava {
+import java.io.Serializable;
+
+public class Drzava implements Serializable {
     private String naziv;
     private int brojStanovnika;
     private double povrsina;
@@ -56,5 +58,16 @@ public class Drzava {
 
     public void setGlavniGrad(Grad glavniGrad) {
         this.glavniGrad = glavniGrad;
+    }
+
+    @Override
+    public String toString() {
+        return "Drzava{" +
+                "naziv='" + naziv + '\'' +
+                ", brojStanovnika=" + brojStanovnika +
+                ", povrsina=" + povrsina +
+                ", jedinicaPovrsine='" + jedinicaPovrsine + '\'' +
+                ", glavniGrad=" + glavniGrad +
+                '}';
     }
 }
