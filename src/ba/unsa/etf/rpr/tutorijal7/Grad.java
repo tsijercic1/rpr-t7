@@ -1,10 +1,12 @@
 package ba.unsa.etf.rpr.tutorijal7;
 
-public class Grad {
+import java.io.Serializable;
+
+public class Grad implements Serializable {
     private String naziv;
     private int brojStanovnika;
     private double[] temperature = new double[1000];
-    private int brojMjerenja;
+    private int brojMjerenja=0;
 
     public Grad() {
     }
