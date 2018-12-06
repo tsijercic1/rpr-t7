@@ -17,11 +17,19 @@ public class Grad implements Serializable {
         this.brojMjerenja=brojMjerenja;
         this.setTemperature(temperature,brojMjerenja);
     }
+
     public Grad(String naziv, double[] temperature, int brojMjerenja, int brojStanovnika){
         this.naziv=naziv;
         this.brojMjerenja=brojMjerenja;
         setTemperature(temperature,brojMjerenja);
         this.brojStanovnika=brojStanovnika;
+    }
+    public int getBrojMjerenja() {
+        return brojMjerenja;
+    }
+
+    public void setBrojMjerenja(int brojMjerenja) {
+        this.brojMjerenja = brojMjerenja;
     }
 
     public String getNaziv() {
