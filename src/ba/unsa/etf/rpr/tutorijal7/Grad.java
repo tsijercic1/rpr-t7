@@ -56,17 +56,17 @@ public class Grad implements Serializable {
     }
 
     public void setTemperature(double[] temperature,int brojMjerenja) {
+        if(temperature!=null)
         System.arraycopy(temperature, 0, this.temperature, 0, brojMjerenja);
     }
 
     @Override
     public String toString() {
         String collect = Arrays.stream(temperature, 0, brojMjerenja).mapToObj(value -> Double.valueOf(value).toString()).collect(Collectors.joining(", "));
-        return "Grad{" +
-                "naziv='" + naziv + '\'' +
-                ", brojStanovnika=" + brojStanovnika +
-                ", temperature=" + collect +
-                ", brojMjerenja=" + brojMjerenja +
-                '}';
+        return
+                "Naziv = '" + naziv + '\'' +
+                "\n  brojStanovnika = " + brojStanovnika +
+                "\n  temperature = " + collect +
+                "\n  brojMjerenja = " + brojMjerenja + "\n";
     }
 }

@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -22,23 +23,25 @@ public class Tutorijal {
 //        for(int i=0;i<gradovi.size();i++){
 //            System.out.println(gradovi.get(i).getNaziv());
 //        }
-        ArrayList<Grad> gradovi = ucitajGradove();
-
-        for(Grad g : gradovi) {
-            System.out.println(g);
-        }
-
-        Drzava bih = new Drzava("Bosna i Hercegovina", 4000000, 52000, "km2", gradovi.get(0));
-        Drzava uk = new Drzava("Velika Britanija", 80000000, 100000, "km2", gradovi.get(1));
-
-        ArrayList<Drzava> drzave = new ArrayList<>();
-        drzave.add(bih);
-        drzave.add(uk);
-
-        UN un = new UN();
-        un.setDrzave(drzave);
-
-        zapisiXml(un);
+//        ArrayList<Grad> gradovi = ucitajGradove();
+//
+//        for(Grad g : gradovi) {
+//            System.out.println(g);
+//        }
+//
+//        Drzava bih = new Drzava("Bosna i Hercegovina", 4000000, 52000, "km2", gradovi.get(0));
+//        Drzava uk = new Drzava("Velika Britanija", 80000000, 100000, "km2", gradovi.get(1));
+//
+//        ArrayList<Drzava> drzave = new ArrayList<>();
+//        drzave.add(bih);
+//        drzave.add(uk);
+//
+//        UN un = new UN();
+//        un.setDrzave(drzave);
+//
+//        zapisiXml(un);
+        UN un = ucitajXml(null);
+        System.out.println(un);
 
     }
 
