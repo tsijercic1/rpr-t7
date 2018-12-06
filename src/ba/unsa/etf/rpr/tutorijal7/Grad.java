@@ -1,10 +1,10 @@
 package ba.unsa.etf.rpr.tutorijal7;
 
 public class Grad {
-    String naziv;
-    int brojStanovnika;
-    double[] temperature = new double[1000];
-    int brojMjerenja;
+    private String naziv;
+    private int brojStanovnika;
+    private double[] temperature = new double[1000];
+    private int brojMjerenja;
 
     public Grad() {
     }
@@ -14,7 +14,12 @@ public class Grad {
         this.brojStanovnika = 0;
         this.brojMjerenja=brojMjerenja;
         this.setTemperature(temperature,brojMjerenja);
-
+    }
+    public Grad(String naziv, double[] temperature, int brojMjerenja, int brojStanovnika){
+        this.naziv=naziv;
+        this.brojMjerenja=brojMjerenja;
+        setTemperature(temperature,brojMjerenja);
+        this.brojStanovnika=brojStanovnika;
     }
 
     public String getNaziv() {
