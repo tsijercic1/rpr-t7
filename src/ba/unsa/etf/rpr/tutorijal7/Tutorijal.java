@@ -28,8 +28,8 @@ public class Tutorijal {
             System.out.println(g);
         }
 
-        Drzava bih = new Drzava("Bosna", 4000000, 52000, "km2", gradovi.get(0));
-        Drzava uk = new Drzava("UK", 80000000, 100000, "km2", gradovi.get(1));
+        Drzava bih = new Drzava("Bosna i Hercegovina", 4000000, 52000, "km2", gradovi.get(0));
+        Drzava uk = new Drzava("Velika Britanija", 80000000, 100000, "km2", gradovi.get(1));
 
         ArrayList<Drzava> drzave = new ArrayList<>();
         drzave.add(bih);

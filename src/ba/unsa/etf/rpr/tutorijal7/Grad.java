@@ -1,6 +1,9 @@
 package ba.unsa.etf.rpr.tutorijal7;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.function.DoubleFunction;
+import java.util.stream.Collectors;
 
 public class Grad implements Serializable {
     private String naziv;
@@ -54,5 +57,16 @@ public class Grad implements Serializable {
 
     public void setTemperature(double[] temperature,int brojMjerenja) {
         System.arraycopy(temperature, 0, this.temperature, 0, brojMjerenja);
+    }
+
+    @Override
+    public String toString() {
+        String collect = Arrays.stream(temperature, 0, brojMjerenja).mapToObj(value -> Double.valueOf(value).toString()).collect(Collectors.joining(", "));
+        return "Grad{" +
+                "naziv='" + naziv + '\'' +
+                ", brojStanovnika=" + brojStanovnika +
+                ", temperature=" + collect +
+                ", brojMjerenja=" + brojMjerenja +
+                '}';
     }
 }
