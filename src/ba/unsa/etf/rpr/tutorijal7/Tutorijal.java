@@ -17,12 +17,28 @@ import java.util.regex.Pattern;
 public class Tutorijal {
     public static void main(String[] args) {
 	// write your code here
-        ArrayList<Grad> gradovi;
-        gradovi=ucitajGradove();
-        for(int i=0;i<gradovi.size();i++){
-            System.out.println(gradovi.get(i).getNaziv());
+//        ArrayList<Grad> gradovi;
+//        gradovi=ucitajGradove();
+//        for(int i=0;i<gradovi.size();i++){
+//            System.out.println(gradovi.get(i).getNaziv());
+//        }
+        ArrayList<Grad> gradovi = ucitajGradove();
+
+        for(Grad g : gradovi) {
+            System.out.println(g);
         }
 
+        Drzava bih = new Drzava("Bosna", 4000000, 52000, "km2", gradovi.get(0));
+        Drzava uk = new Drzava("UK", 80000000, 100000, "km2", gradovi.get(1));
+
+        ArrayList<Drzava> drzave = new ArrayList<>();
+        drzave.add(bih);
+        drzave.add(uk);
+
+        UN un = new UN();
+        un.setDrzave(drzave);
+
+        zapisiXml(un);
 
     }
 
